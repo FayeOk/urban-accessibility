@@ -4,7 +4,7 @@ import DeckGL from '@deck.gl/react';
 import { GeoJsonLayer } from '@deck.gl/layers';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoidDl1N2IiLCJhIjoiY21nbWwybGpoMWVvYTJtcHJpbWR5eWZibCJ9.pwDsck55gI0bezF6yIx3ew';
+const MAPBOX_TOKEN = 'pk.eyJ1IjoidDl1N2IiLCJhIjoiY21rZ3QyNW9yMDZqMTNocTBtcnQ4bHNwayJ9.TXuMEieHqq40puj2P893Rw';
 
 const MapContainer = ({ data, showStops }) => {
     const layers = useMemo(() => [
