@@ -5,25 +5,39 @@ import '../styles/MainPage.css';
 
 const MainPage = () => {
     const [geoData, setGeoData] = useState({ type: 'FeatureCollection', features: [] });
-    const [showStops, setShowStops] = useState(true);
+    const [vis, setVis] = useState({
+        demand: true,
+        isochrone: false,
+        coverage: false,
+        tci: false,
+        lines: false,
+        stops: false,
+        composite: false,
+        imbalance: false,
+    });
+    const [tciSession, setTciSession] = useState('morning');
+
+    const toggleVis = key => setVis(v => ({ ...v, [key]: !v[key] }));
 
     return (
         <div className="dashboard-container">
-            <header className="dashboard-header">
-                <div className="logo">URBAN ACCESSIBILITY</div>
-            </header>
-
             <div className="map-view">
-                <MapContainer data={geoData} showStops={showStops} />
+                <MapContainer
+                    data={geoData}
+                    vis={vis}
+                    onToggleVis={toggleVis}
+                    tciSession={tciSession}
+                    onSessionChange={setTciSession}
+                />
             </div>
-
             <div className="floating-sidebar">
-                {/* 务必检查此处的 prop 传递 */}
                 <SidebarPanel
                     onDataUpdate={setGeoData}
                     geoData={geoData}
-                    showStops={showStops}
-                    onShowStopsChange={setShowStops}
+                    vis={vis}
+                    onToggleVis={toggleVis}
+                    tciSession={tciSession}
+                    onSessionChange={setTciSession}
                 />
             </div>
         </div>

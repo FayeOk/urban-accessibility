@@ -1,5 +1,14 @@
 node_modules/
-.DS_Store
 dist/
 build/
+.DS_Store
 .env
+Back_end/data_process/output/
+Back_end/data_process/北京区块数据.*
+Back_end/landscan-global-2022-assets/
+data/
+public/data/output/
+src.zip
+.env
+.env.*
+!.env.example
